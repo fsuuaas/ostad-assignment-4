@@ -60,7 +60,6 @@ class ContactController extends Controller
             'email' => 'required|email|unique:contacts,email,' . $contact->id,
         ]);
         $contact->update($request->all());
-
         return redirect()->route('contacts')->with('success', 'Contact updated successfully.');
     }
 
@@ -68,7 +67,6 @@ class ContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
-
         return redirect()->route('contacts')->with('success', 'Contact deleted successfully.');
     }
 }
